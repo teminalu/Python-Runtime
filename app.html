@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wi-Fi速度テスト.apk</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2em;
+      text-align: center;
+    }
+    h1 {
+      color: #58a6ff;
+      font-size: 2em;
+      margin-bottom: 1em;
+      text-shadow: 0 0 8px #58a6ffaa;
+    }
+    button {
+      background-color: #238636;
+      border: none;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 6px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-bottom: 1.5em;
+      box-shadow: 0 0 10px #23863699;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    button:hover {
+      background-color: #2ea043;
+      box-shadow: 0 0 18px #2ea043dd;
+    }
+    .pwa-only-msg {
+      background: #161b22;
+      border-left: 4px solid #58a6ff;
+      padding: 1em;
+      border-radius: 8px;
+      max-width: 500px;
+      margin-top: 1em;
+      box-shadow: 0 0 12px #58a6ff55;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Wi-Fi速度テスト.apk</h1>
+
+  <button onclick="alert('速度測定中…（仮）')">速度測定</button>
+
+  <div id="pwa-msg" class="pwa-only-msg">
+    アプリ版では一回速度測定をしたら更新して
+  </div>
+
+  <script>
+    // PWAで起動されていなければトップページにリダイレクト
+    if (!window.matchMedia('(display-mode: standalone)').matches) {
+      window.location.href = "/";
+    } else {
+      // PWAのときだけメッセージ表示
+      document.getElementById('pwa-msg').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
